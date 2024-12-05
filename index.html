@@ -10,15 +10,20 @@
 </head>
 <body>
     <div id="app" class="layout">
+        <div class="bgswitch">
+            <div class="swiper">
+                <template v-for="(item,index) in swiperList">
+                    <div class="slide" :key="index" :style="rebgi(item)" v-if="slideIdx == index"></div>
+                </template>
+            </div> 
+        </div>
+        
         <div class="top">
             <div class="logo">
                 <img src="img/logo_1.png">
             </div>
         </div>
         <div class="meInfo">
-            <!-- <div class="logo">
-                <img src="img/logo_2.png">
-            </div> -->
             <div class="avatar">
                 <img src="img/avatar.jpg">
             </div>
@@ -43,17 +48,39 @@
                 const lineData = ref([
                     {title: '🌈路小雨Ⓡⓐⓘⓝ🐇(1)', url: 'https://line.me/R/ti/p/~ghu99'}
                 ]);
+                const slideIdx = ref(0);
+                const swiperList = ref([
+                    'img/model_1s.jpg',
+                    'img/model_2s.jpg',
+                    'img/model_3s.jpg'
+                ]);
 
+                // 開啟連結
                 function openLine(num) {
                     window.open(lineData.value[num].url);
                 }
+               
+                // 創立背景輪播
+                const createSwiper = () => {
+                    setInterval(()=>{
+                        slideIdx.value = slideIdx.value == 2 ? 0 : slideIdx.value + 1
+                    },8000)
+                }
+
+                function rebgi(src) {
+                    return `background-image:url(${src});`;
+                }
                 
                 onMounted(async () => {
-                    
+                    createSwiper()
                 });
                 return {
                     lineData,
-                    openLine
+                    slideIdx,
+                    swiperList,
+                    openLine,
+                    createSwiper,
+                    rebgi
                 };
             },
         }).mount("#app");
