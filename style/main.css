@@ -212,6 +212,9 @@ body {
 }
 
 .btnGroup {
+  width: 100%;
+  max-width: 450px;
+  margin: 0 auto;
   padding: 30px 15px;
 }
 .btnGroup .tip {
