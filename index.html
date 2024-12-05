@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/line.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style/main.css">
+    <script src="js/vue.js"></script>
+    <title>LINE</title>
+</head>
+<body>
+    <div id="app" class="layout">
+        <div class="top">
+            <div class="logo">
+                <img src="img/logo_1.png">
+            </div>
+        </div>
+        <div class="meInfo">
+            <!-- <div class="logo">
+                <img src="img/logo_2.png">
+            </div> -->
+            <div class="avatar">
+                <img src="img/avatar.jpg">
+            </div>
+            <div class="title">
+                <p>🌈路小雨Ⓡⓐⓘⓝ🎇</p>
+                <p>台中萌系小女友🐇</p>
+            </div>
+        </div>
+        <div class="btnGroup">
+            <div class="tip">
+                <p>如果遇到帳號好友加滿，</p>
+                <p>請換一個帳號試試，謝謝哥哥❤️</p>
+            </div>
+            <div class="btn" v-for="(item,index) in lineData" :key="index" @click="openLine(index)">{{item.title}}</div>
+        </div>
+    </div> 
+
+    <script>
+        const { createApp, ref, onMounted } = Vue;
+        createApp({
+            setup() {
+                const lineData = ref([
+                    {title: '🌈路小雨Ⓡⓐⓘⓝ🐇(1)', url: 'https://line.me/R/ti/p/~ghu99'}
+                ]);
+
+                function openLine(num) {
+                    window.open(lineData.value[num].url);
+                }
+                
+                onMounted(async () => {
+                    
+                });
+                return {
+                    lineData,
+                    openLine
+                };
+            },
+        }).mount("#app");
+    </script>
+</body>
+</html>
