@@ -50,9 +50,9 @@
                 ]);
                 const slideIdx = ref(0);
                 const swiperList = ref([
-                    'img/model_1s.jpg',
-                    'img/model_2s.jpg',
-                    'img/model_3s.jpg'
+                    'img/model_1.jpg',
+                    'img/model_2.jpg',
+                    'img/model_3.jpg'
                 ]);
 
                 // 開啟連結
@@ -64,7 +64,7 @@
                 const createSwiper = () => {
                     setInterval(()=>{
                         slideIdx.value = slideIdx.value == 2 ? 0 : slideIdx.value + 1
-                    },6000)
+                    },7000)
                 }
 
                 function rebgi(src) {
