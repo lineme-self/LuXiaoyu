@@ -227,7 +227,7 @@ body {
   text-align: center;
   font-weight: bold;
   color: #fff;
-  background: linear-gradient(0deg, #75b187, #12a53e);
+  background-color: #07b53b;
   border-radius: 5px;
   box-shadow: 0 -4px 4px #02390d inset;
 }
